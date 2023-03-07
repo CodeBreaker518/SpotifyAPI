@@ -2,7 +2,7 @@ const cardTop = document.querySelector('#cardTop').content
 const contenido = document.querySelector('#contenido')
 const fragment = document.createDocumentFragment()
 const API = 'https://spotify81.p.rapidapi.com/top_200_tracks'
-let topHundred = [];
+let topTwoHundred = [];
 
 document.addEventListener('DOMContentLoaded', () => {
   loadMusicData()
@@ -19,19 +19,19 @@ const loadMusicData = () => {
   fetch(API, options)
     .then(response => response.json())
     .then(response => {
-      topHundred = response
-      console.log('Canciones', topHundred)
+      topTwoHundred = response
+      console.log('Canciones', topTwoHundred)
       creaCards()
     })
     .catch(err => console.error(err))
 }
 
 const creaCards = () => {
-  topHundred.forEach((song) => {
-    cardTop.querySelector('img').setAttribute('src', song.trackMetadata.displayImageUri)
-    cardTop.querySelector('.songname').textContext = song.trackMetadata.trackName
-    const clone = cardTop.cloneNode(true)
-    fragment.appendChild(clone)
+    topTwoHundred.forEach((song) => {
+      cardTop.querySelector('img').setAttribute('src', song.trackMetadata.displayImageUri)
+      cardTop.querySelector('.songname').textContent = song.trackMetadata.trackName
+      const clone = cardTop.cloneNode(true)
+      fragment.appendChild(clone)
   })
   contenido.appendChild(fragment)
 }
