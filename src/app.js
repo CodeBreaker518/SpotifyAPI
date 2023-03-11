@@ -49,12 +49,13 @@ const creaCards = () => {
 }
 
 btnBuscar.addEventListener('input', (event) => {
-  let searchedSong = event.target.value
+  let searchedSong = event.target.value.toLowerCase()
   console.log(searchedSong)
   contenido.innerHTML = '' 
   let filteredSongs = topTwoHundred.filter((song) => {
-    return song.trackMetadata.trackName.includes(searchedSong)
+    return song.trackMetadata.trackName.toLowerCase().includes(searchedSong)
   })
+  console.log(filteredSongs)
   filteredSongs.forEach((song) => {
       cardTop.querySelector('img').setAttribute('src', song.trackMetadata.displayImageUri)
       cardTop.querySelector('.songname').textContent = song.trackMetadata.trackName
@@ -72,4 +73,5 @@ btnBuscar.addEventListener('input', (event) => {
       const clone = cardTop.cloneNode(true)
       fragment.appendChild(clone)
   })
+  contenido.appendChild(fragment)
 })
