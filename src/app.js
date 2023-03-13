@@ -76,9 +76,6 @@ btnBuscar.addEventListener('input', (event) => {
     });
     contenido.appendChild(fragment);
   } else {
-    console.log('no hay coincidencias');
-    let p = document.createElement('p');
-    p = `No se encontraron Coincidencias`;
-    contenido.innerHTML = `No se encontraron coincidencias`
+    contenido.innerHTML = `No se encontraron coincidencias`;
   }
 });
