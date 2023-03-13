@@ -75,6 +75,7 @@ body {
   font-weight: 600;
   color: white;
   background-color: black;
+  padding: 5px;
 }
 .artistname {
   font-family: 'Sofia Sans Semi Condensed', sans-serif;
@@ -82,6 +83,7 @@ body {
   font-weight: 400;
   color: white;
   background-color: black;
+  padding: 5px;
 }
 .inputBuscador {
   width: 70%;
