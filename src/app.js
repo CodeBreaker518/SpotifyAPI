@@ -56,22 +56,29 @@ btnBuscar.addEventListener('input', (event) => {
     return song.trackMetadata.trackName.toLowerCase().includes(searchedSong);
   });
   console.log(filteredSongs);
-  filteredSongs.forEach((song) => {
-    cardTop.querySelector('img').setAttribute('src', song.trackMetadata.displayImageUri);
-    cardTop.querySelector('.songname').textContent = song.trackMetadata.trackName;
-    let artists = '';
-    let size = song.trackMetadata.artists.length;
-    song.trackMetadata.artists.forEach((item, index) => {
-      if (index === size - 1) {
-        artists += item.name;
-      } else {
-        artists += item.name + '/';
-      }
-    });
-    cardTop.querySelector('.artistname').textContent = artists;
+  if (filteredSongs.length > 0) {
+    filteredSongs.forEach((song) => {
+      cardTop.querySelector('img').setAttribute('src', song.trackMetadata.displayImageUri);
+      cardTop.querySelector('.songname').textContent = song.trackMetadata.trackName;
+      let artists = '';
+      let size = song.trackMetadata.artists.length;
+      song.trackMetadata.artists.forEach((item, index) => {
+        if (index === size - 1) {
+          artists += item.name;
+        } else {
+          artists += item.name + '/';
+        }
+      });
+      cardTop.querySelector('.artistname').textContent = artists;
 
-    const clone = cardTop.cloneNode(true);
-    fragment.appendChild(clone);
-  });
-  contenido.appendChild(fragment);
+      const clone = cardTop.cloneNode(true);
+      fragment.appendChild(clone);
+    });
+    contenido.appendChild(fragment);
+  } else {
+    console.log('no hay coincidencias');
+    let p = document.createElement('p');
+    p = `No se encontraron Coincidencias`;
+    contenido.innerHTML = `No se encontraron coincidencias`
+  }
 });

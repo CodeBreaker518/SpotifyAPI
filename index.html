@@ -24,7 +24,8 @@
     <div class="contenedor">
       <div class="buscador">
         <i class="fa-solid fa-magnifying-glass iconoBuscar"></i>
-        <input type="text" name="" id="buscador" class="inputBuscador" placeholder="¿Qué cancion buscas?">
+        <input onfocus="this.setSelectionRange(0, this.value.length)" type="text" name="" id="buscador"
+          class="inputBuscador" placeholder="¿Qué cancion buscas?">
       </div>
       <div class="contenido" id="contenido"></div>
     </div>
