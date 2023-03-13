@@ -17,7 +17,7 @@ body {
 }
 
 .contenedor {
-  background-color: black;
+  background: rgb(18, 18, 18);
   width: 80%;
   height: 80vh;
 }
@@ -31,7 +31,7 @@ body {
 .buscador {
   width: 100%;
   height: 10%;
-  background-color: darkkhaki;
+  background: rgb(18, 18, 18);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -44,7 +44,6 @@ body {
   height: 90%;
   display: flex;
   flex-direction: row;
-
   flex-wrap: wrap;
   justify-content: space-around;
   overflow-y: scroll;
@@ -54,7 +53,7 @@ body {
 .card {
   align-items: center;
   justify-content: center;
-  /* padding: 10px; */
+  padding: 10px;
   margin: 5px;
   display: flex;
   flex-direction: row;
@@ -84,13 +83,21 @@ body {
   background-color: black;
 }
 .inputBuscador {
-  background: #858585;
   width: 70%;
-  border-radius: 10px;
+  height: 50%;
+  padding-left: 40px;
+  background-color: white;
+  border: 0px solid;
+  border-bottom: 1px solid white;
+  border-radius: 20px;
+  color: black;
+  outline: none;
 }
 .iconoBuscar {
-  margin-left: 10px;
-  color: white;
+  position: absolute;
+  left: 33%;
+  margin-right: 10px;
+  color: black;
 }
 
 @media (max-width: 900px) {
@@ -98,4 +105,25 @@ body {
     flex-direction: column;
     width: 33% !important;
   }
+}
+@media (max-width: 1100px) {
+  .card {
+    flex-direction: column;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(73, 73, 73);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(137, 137, 137);
+}
+::-webkit-scrollbar-thumb:active {
+  background: rgb(213, 213, 213);
 }
